@@ -1,0 +1,103 @@
+/* Reset de estilos padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos da página principal */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fafafaa4;
+}
+
+.wrapper {
+    display: flex;
+    height: 100vh; /* A altura da tela inteira */
+}
+
+.wrapper div{
+    width: 100%;
+}
+
+/* Estilos da barra lateral esquerda (menu) */
+.sidebar {
+    width: 15%;
+    background-color: #000000ef;
+    color: #ffffff;
+    padding: 20px;
+    /* box-shadow: 11px -3px 16px -7px rgba(0,0,0,0.75); */
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 50px;
+}
+.sidebar li {
+margin-top: 50px;
+}
+.sidebar a {
+    margin: 75px;
+    text-decoration: none;
+    color:#a907f5;
+}
+
+.sidebar div{
+    margin: 2% 0;
+}
+.sidebar h1 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #a907f5;
+ 
+}
+
+/*.sidebar div img{
+    width: 80%;
+}*/
+
+/* Estilos da barra de topo */
+.topbar {
+    background-color: #000000;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Largura total da parte superior */
+    border-bottom: 1px solid #000;
+    /* box-shadow: -7px 15px 16px -7px rgba(0,0,0,0.75); */
+}
+
+.topbar h1 {
+    font-size: 24px;
+    color: #ffffff;
+}
+
+
+.user-menu{
+    width: 15% !important;
+    display: flex;
+    align-items: center;
+}
+
+.user-menu img{
+    width: 20%;
+}
+
+.user-menu a {
+    text-decoration: none;
+    color: #ffffff;
+    margin-left: 20px;
+}
+
+/* Estilos da área de administração (conteúdo) */
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+table, caption,th, td{
+    border: solid #000;
+}
