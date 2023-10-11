@@ -23,4 +23,24 @@ class BlogClass{
         $listaBlog = $resultado->fetchAll();
         return $listaBlog; 
     }
+
+public function Inserir(){
+    $query = "INSERT INTO blog (tituloBlog, 
+                                  fotoBlog, 
+                                  descricaoFotoBlog, 
+                                  descricaoBlog, 
+                                  urlBlog, 
+                                  statusBlog) 
+            VALUES ('".$this->tituloBlog."',
+                    '".$this->fotoBlog."',
+                    '".$this->descricaoFotoBlog."',
+                    '".$this->descricaoBlog."',
+                    '".$this->urlBlog."',
+                    '".$this->statusBlog."');";
+    $conn = Conexao::LigarConexao();
+    $conn->exec($query);
+    echo "<script> document.location='index.php?p=blog'</script>";
+
 }
+
+ }

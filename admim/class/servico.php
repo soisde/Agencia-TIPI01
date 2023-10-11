@@ -15,6 +15,13 @@ class ServicoClass{
     public $statusServico;
 
     //METODOS
+public function __construct($id = false)
+{
+    if($id){
+        $this->idServico = $id;
+        $this->Carregar();
+    }
+}
 
     public function ListarServico(){
         $query = "SELECT * FROM servico WHERE statusServico = 1 ORDER BY tituloServico ASC ";
@@ -23,4 +30,46 @@ class ServicoClass{
         $listaServico = $resultado->fetchAll();
         return $listaServico; 
     }
+
+    public function Inserir(){
+        $query = "INSERT INTO servico(tituloServico, 
+                                      fotoServico, 
+                                      descricaoFotoServico, 
+                                      descricaoServico, 
+                                      urlServico, 
+                                      statusServico) 
+                VALUES ('".$this->tituloServico."',
+                        '".$this->fotoServico."',
+                        '".$this->descricaoFotoServico."',
+                        '".$this->descricaoServico."',
+                        '".$this->urlServico."',
+                        '".$this->statusServico."');";
+        $conn = Conexao::LigarConexao();
+        $conn->exec($query);
+        echo "<script> document.location='index.php?p=servico'</script>";
+
+    }
+
+    public function Carregar(){
+        $query = "SELECT * FROM servico WHERE idServico =" . $this->idServico;
+        $conn = Conexao::LigarConexao();
+        $resultado = $conn->query($query);
+        $listaServico = $resultado->fetchAll();
+
+        foreach($listaServico as $linha){
+
+            $this->tituloServico                = $linha['tituloServico'];
+            $this->fotoServico                  = $linha['fotoServico'];
+            $this->descricaoFotoServico         = $linha['descricaoFotoServico'];
+            $this->descricaoServico             = $linha['descricaoServico'];
+            $this->urlServico                   = $linha['urlServico'];
+            $this->statusServico                = $linha['statusServico'];
+        }
+
+
+
+
+
+}
+
 }

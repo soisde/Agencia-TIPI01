@@ -1,6 +1,6 @@
 <?php
 
-$pagina = @$_GET['s'];
+$pagina = @$_GET['b'];
 
 if($pagina == NULL){
     require_once('listar.php');

@@ -4,9 +4,12 @@
     $listaServico = new ServicoClass();
     $listarS = $listaServico->ListarServico();
 ?>
-
+<ul class="botaoC">
+    <li class="botaoC"><a href="index.php?p=servico&s=inserir">Inserir</a></li>
+</ul>
 <div>
     <table>
+        
         <caption>Lstar Serviços</caption>
         <thead>
             <th>ID</th>
@@ -31,8 +34,8 @@
                 <td><?php echo $linha['descricaoServico']?></td>
                 <td><?php echo $linha['urlServico']?></td>
                 <td><?php echo $linha['	statusServico']?></td>
-                <td><a href="index.php?p=servico&s=atualizar">ATUALIZAR</a></td>
-                <td><a href="index.php?p=servico&s=desativar">DESATIVAR</a></td>
+                <td><a href="index.php?p=servico&s=atualizar&id=<?php echo $linha['idServico']?>">ATUALIZAR</a></td>
+                <td><a href="index.php?p=servico&s=desativar&id=<?php echo $linha['idServico']?>">DESATIVAR</a></td>
             </tr>
             <?php endforeach?>
         </tbody>

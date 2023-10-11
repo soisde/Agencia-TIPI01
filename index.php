@@ -1,7 +1,7 @@
 <?php
 
-    require_once('admim/calss/servico.php');
-    require_once('admim/calss/blog.php');
+    require_once('admim/class/servico.php');
+    require_once('admim/class/blog.php');
     $listaServico = new ServicoClass();
     $listaBlog = new BlogClass();
     $listarS = $listaServico->ListarServico();

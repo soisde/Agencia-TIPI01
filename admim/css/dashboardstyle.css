@@ -101,3 +101,8 @@ margin-top: 50px;
 table, caption,th, td{
     border: solid #000;
 }
+
+.botaoC{
+    padding: 10px;
+display: contents;
+}
