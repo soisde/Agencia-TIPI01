@@ -66,10 +66,36 @@ public function __construct($id = false)
             $this->statusServico                = $linha['statusServico'];
         }
 
+}
+
+public function Atualizar(){
+    $query = "UPDATE servico SET  tituloServico         = '".$this->tituloServico."', 
+                                  fotoServico           = '".$this->fotoServico."', 
+                                  descricaoFotoServico  = '".$this->descricaoFotoServico."', 
+                                  descricaoServico      = '".$this->descricaoServico."', 
+                                  urlServico            = '".$this->urlServico."',
+                                  statusServico         = '".$this->statusServico."' 
+                         WHERE servico.idServico        = " . $this->idServico;
+
+                         $conn = Conexao::LigarConexao();
+                         $conn->exec($query);
+                         echo "<script> document.location='index.php?p=servico'</script>";
+                 
+                         
+
+                                }
 
 
+public function Desativar(){
+    $query = "UPDATE servico SET 
+    statusServico  = '0'
+    WHERE servico.idServico = ". $this->idServico;
 
+     $conn = Conexao::LigarConexao();
+     $conn->exec($query);
+     echo "<script> document.location='index.php?p=servico'</script>";
 
 }
+
 
 }

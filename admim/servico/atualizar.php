@@ -7,23 +7,32 @@ $servico = new ServicoClass($id);
 
     if(isset($_POST['tituloServico'])){
         
-        $tituloServico      =$_POST['tituloServico'];
-        $descricaoServico   =$_POST['descricaoServico'];
-        $urlServico         =$_POST['urlServico'];
-        $statusServico      =$_POST['statusServico'];
+        $tituloServico          =$_POST['tituloServico'];
+        $descricaoServico       =$_POST['descricaoServico'];
+        $descricaoFotoServico   =$_POST['descricaoFotoServico'];
+        $urlServico             =$_POST['urlServico'];
+        $statusServico          =$_POST['statusServico'];
 
-        $arquivo            =$_FILES['fotoServico'];
+        if(!empty($__FILES['fotoServico']['name'])){
 
-        if($arquivo['error']){
-            throw new Exception('Error' . $arquivo['Error']);
-        }
+            $arquivo            =$_FILES['fotoServico'];
 
-        if(move_uploaded_file($arquivo['tmp_name'], '../img/servico/' . $arquivo['name'] )){
-            $fotoServico = 'servico/' . $arquivo['name'];
-
+            if($arquivo['error']){
+                throw new Exception('Error' . $arquivo['Error']);
+            }
+    
+            if(move_uploaded_file($arquivo['tmp_name'], '../img/servico/' . $arquivo['name'] )){
+                $fotoServico = 'servico/' . $arquivo['name'];
+    
+            }else{
+                throw new Exception('Error' . $arquivo['Error']);
+    
+                
+            }
         }else{
-            throw new Exception('Error' . $arquivo['Error']);
+            $fotoServico = $servico->fotoServico;
         }
+
 
         $servico->tituloServico            =$tituloServico; 
         $servico->fotoServico              =$fotoServico; 
@@ -32,7 +41,7 @@ $servico = new ServicoClass($id);
         $servico->urlServico               =$urlServico;
         $servico->statusServico            =$statusServico;
 
-        $servico->Inserir();
+        $servico->Atualizar();
 
     }
 
